@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		  <title>Taksohinna kalkulaator</title>
+		      <script type="text/javascript">
+
+                       
+    			function arvuta (){
+
+                    var km = parseFloat(document.getElementById("km").value);
+                    var sisse;
+                    var kmhind;
+
+                    var seisund = document.getElementById("seisund").value;
+                    var image = document.getElementById("day");
+                    var image2 = document.getElementById("night");
+                        if(seisund=="paev") {
+                            sisse = 2;
+                            kmhind = 0.5;
+                            image.style.display = 'block';
+                            image2.style.display = 'none';
+                        } else {
+                            sisse = 5;
+                            kmhind = 1;
+                            image.style.display = 'none';
+                            image2.style.display = 'block';
+                        }
+                        
+                    vastus = ((km * kmhind) + sisse).toFixed(2);
+                    document.getElementById("vastus").innerHTML = vastus;
+                    				
+                    }
+
+		      </script>
+		</head>
+	<body bgcolor="#E6E6FA"> 
+		<h1 STYLE = 'Color: Blue'>Taksosõidu kalkulaator</h1>
+            <input type="text"  id="km" /> km <br />
+            <br />
+            <br />Päev või öö:
+            <br />
+            <div>
+                <select id="seisund" name="seisundiList" form="seisundiVorm">
+                  <option value="paev">Päev</option>
+                  <option value="oo">Öö</option>
+                </select>
+            </div>
+            <br />
+            <img src="images/day.jpg" style="display: none; width: 400px;" id="day"/>
+            <img src="images/night.jpg" style="display: none; width: 400px;" id="night"/>
+            <br />    
+    		<input type="button" value="Arvuta" onclick="arvuta ()" /><br />
+            <B>   <div> Selle sõidu eest tuleb kokku maksta: <B> <span id="vastus">vastuse koht</span> EUR <B></div>
+            <B> <br /><br />
+	</body>
+</html>
